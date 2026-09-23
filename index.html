@@ -1,0 +1,32 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MK Nursing Care</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial;color:#17324d;background:#f7fbfd}nav{padding:14px 6%;background:#fff;display:flex;justify-content:space-between;position:sticky;top:0;border-bottom:1px solid #ddd}nav a{margin-left:12px;text-decoration:none;color:#17324d}.hero{text-align:center;padding:55px 7%;background:#eafaf9}.hero h1{font-size:40px}.btn{display:inline-block;background:#159a9c;color:white;padding:12px 18px;border-radius:9px;text-decoration:none;border:0;margin:4px;font-weight:bold}.wa{background:#168c4a}section{padding:45px 7%;max-width:1100px;margin:auto}h2{text-align:center}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px}.card,form{background:#fff;padding:20px;border-radius:14px;box-shadow:0 4px 18px #17324d18}input,select,textarea{width:100%;padding:11px;margin:6px 0 13px;border:1px solid #ccd9df;border-radius:7px}textarea{min-height:80px}footer{background:#17324d;color:white;text-align:center;padding:25px}#chat{display:none;position:fixed;right:15px;bottom:15px;width:340px;max-width:90%;background:white;box-shadow:0 5px 30px #0003;border-radius:14px;overflow:hidden}.head{background:#159a9c;color:white;padding:14px;font-weight:bold}.msgs{height:240px;overflow:auto;padding:12px}.msg{background:#eef5f7;padding:8px;margin:6px;border-radius:8px}.user{background:#d8f5f2}.chat{display:flex;padding:8px}.chat input{margin:0}.small{font-size:13px;color:#667}@media(max-width:650px){.hero h1{font-size:31px}nav a{font-size:12px}}
+</style></head><body>
+<nav><b style="font-size:22px;color:#07519a">MK <span style="color:#159a9c">Nursing Care</span></b><div><a href="#services">Services</a><a href="#book">Book</a><a href="#contact">Contact</a></div></nav>
+<header class="hero">
+<div style="font-size:52px">🏠💙🩺</div><h1>Professional Care, At Your Home.</h1>
+<p>Home nursing and patient-care support in Multan.</p>
+<a class="btn wa" href="https://wa.me/923091768348?text=Assalam-o-Alaikum%2C%20I%20want%20information%20about%20MK%20Nursing%20Care." target="_blank">💬 WhatsApp Us</a>
+<a class="btn" href="#book">Book a Service</a><button class="btn" onclick="toggleChat()">🤖 AI Assistant</button></header>
+<section id="services"><h2>Our Services</h2><div class="grid">
+<div class="card"><h3>🩺 Home Nursing</h3><p>Support for patients needing nursing care at home.</p></div>
+<div class="card"><h3>👵 Elderly Care</h3><p>Daily patient-care and companionship support.</p></div>
+<div class="card"><h3>🩹 Wound Dressing</h3><p>Home dressing support by appropriately qualified staff.</p></div>
+<div class="card"><h3>🏥 Post-Operative Care</h3><p>Recovery support after hospital discharge.</p></div>
+<div class="card"><h3>🧴 Catheter Care</h3><p>Catheter-related care according to clinical instructions.</p></div>
+<div class="card"><h3>📈 Vital Monitoring</h3><p>Basic monitoring and reporting as appropriate.</p></div></div></section>
+<section id="book"><h2>Request a Service</h2><form id="f">
+<label>Patient name</label><input id="n" required><label>Age</label><input id="a" type="number" required>
+<label>Service</label><select id="s" required><option value="">Select</option><option>Home Nursing</option><option>Elderly Care</option><option>Wound Dressing</option><option>Post-Operative Care</option><option>Catheter Care</option><option>Vital Monitoring</option></select>
+<label>Area</label><input id="ar" placeholder="e.g. Multan Cantt" required><label>Date</label><input id="d" type="date" required><label>Time</label><input id="t" type="time" required><label>Contact number</label><input id="ph" type="tel" required><label>Additional information</label><textarea id="no"></textarea>
+<button class="btn wa" type="submit">Send Booking on WhatsApp</button></form></section>
+<section><h2>Why MK Nursing Care?</h2><div class="grid"><div class="card"><h3>Patient-focused</h3><p>Respectful care at home.</p></div><div class="card"><h3>Easy booking</h3><p>Send your request directly on WhatsApp.</p></div><div class="card"><h3>Professional support</h3><p>Care should be delivered by appropriately qualified personnel.</p></div></div></section>
+<section id="contact"><h2>Contact</h2><div class="card" style="text-align:center"><p><b>Service Area:</b> Multan, Punjab, Pakistan</p><p><b>WhatsApp:</b> 0309 1768348</p><a class="btn wa" href="https://wa.me/923091768348" target="_blank">Chat on WhatsApp</a></div></section>
+<footer>© 2026 MK Nursing Care · Home Nursing & Patient Care Services</footer>
+<div id="chat"><div class="head">🤖 MK Nursing Care Assistant <span onclick="toggleChat()" style="float:right">×</span></div><div class="msgs" id="m"><div class="msg">Assalam-o-Alaikum! What home-care service do you need?</div></div><div class="chat"><input id="ci" placeholder="Type here..." onkeydown="if(event.key==='Enter')send()"><button class="btn" onclick="send()">Send</button></div></div>
+<script>
+function toggleChat(){let x=document.getElementById('chat');x.style.display=x.style.display==='block'?'none':'block'}
+function send(){let i=document.getElementById('ci'),q=i.value.trim();if(!q)return;add(q,'user');i.value='';let x=q.toLowerCase(),r=x.includes('price')?'Charges depend on service, duration and location. Please WhatsApp 03091768348 for current charges.':x.includes('emergency')?'Please contact emergency medical services or go to the nearest emergency department immediately.':'We can help with home nursing, elderly care, wound dressing, post-operative care, catheter care and vital monitoring. Which service do you need?';setTimeout(()=>add(r,''),250)}
+function add(x,c){let d=document.createElement('div');d.className='msg '+c;d.textContent=x;document.getElementById('m').appendChild(d)}
+document.getElementById('f').onsubmit=function(e){e.preventDefault();let q=`Assalam-o-Alaikum, I want to book MK Nursing Care.%0APatient: ${n.value}%0AAge: ${a.value}%0AService: ${s.value}%0AArea: ${ar.value}%0ADate: ${d.value}%0ATime: ${t.value}%0AContact: ${ph.value}%0AInfo: ${no.value}`;window.open('https://wa.me/923091768348?text='+q,'_blank')}
+</script></body></html>
